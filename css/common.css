@@ -1,0 +1,35 @@
+@font-face {
+    font-family: 'icomoon';
+    src:  url('../fonts/icomoon.eot?yo2bpw');
+    src:  url('../fonts/icomoon.eot?yo2bpw#iefix') format('embedded-opentype'),
+    url('../fonts/icomoon.ttf?yo2bpw') format('truetype'),
+    url('../fonts/icomoon.woff?yo2bpw') format('woff'),
+    url('../fonts/icomoon.svg?yo2bpw#icomoon') format('svg');
+    font-weight: normal;
+    font-style: normal;
+}
+.clearfix:after {
+    content: "";
+    display: block;
+    height: 0;
+    clear: both;
+    visibility: hidden;
+}
+.clearfix {
+    *zoom:1;
+}
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+body {
+    font-family: "Microsoft YaHei", sans-serif;
+    background-color: #ededed;
+}
+ul {
+    list-style: none;
+}
+a {
+    text-decoration: none;
+}

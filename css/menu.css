@@ -1,0 +1,86 @@
+.navigation {
+  padding-top: 25px;
+  position: fixed;
+  top: 0;
+  width: 200px;
+  background-color: rgba(214,60,93,0.5);
+  box-shadow: none;
+  transition: height 0.3s;
+  z-index: 999;
+  display: none;
+}
+.navbar {
+  float: right;
+  width: 36px;
+  height: 36px;
+  margin-right: 15px;
+  background-color: #d63c5d;
+  border: 1px solid #fff;
+  border-radius: 3px;
+  color: #fff;
+  font-size: 16px;
+  line-height: 36px;
+  text-align: center;
+  font-weight: bolder;
+}
+li {
+  list-style: none;
+}
+a {
+  font-family: "icomoon";
+  text-decoration: none;
+
+}
+nav>a {
+  display: inline-block;
+  height: 36px;
+  padding-left: 15px;   
+  text-align: center;
+  line-height: 36px;
+  font-size: 28px;
+  color:#fff;
+}
+nav>ul {
+  margin-top: 30px;
+}
+nav>ul li{
+  height: 51px; 
+  text-align: left;
+  line-height: 51px;
+  border-bottom: 1px solid #fff;
+}
+
+nav>ul a{
+  display: block;
+  height: 51px;
+  width: 100%;
+  padding: 5px;
+  padding-left: 15px;
+  background-color: rgba(214,60,93,0.8); 
+  color: #fff;
+    transition: all 1s;
+}
+nav>ul a.current{
+   background-color: #fff;
+   color: #d63c5d; 
+} 
+.main-button {
+  float: left;
+  width: 36px;
+  height: 36px;
+  margin: 25px 25px 30px 15px; 
+  font-family: "icomoon";
+  margin-right: 15px;
+  background-color: rgba(214,60,93,0.8);
+  border: 1px solid rgba(255,255,253,0.5);
+  border-radius: 3px;
+  font-size: 16px;
+  line-height: 36px;
+  text-align: center; 
+  z-index: 999;
+  cursor: pointer;
+  display: block;
+  
+}
+
+ 

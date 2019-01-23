@@ -1,0 +1,164 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<title>秦贞一的个人网站</title>
+	<!--[if lte IE 8]>
+    <script src="js/html5shiv.min.js"></script>
+    <![endif]-->
+	<meta name="description" content="秦贞一的个人网站">
+	<meta name="Keywords" content="个人网站,web前端工程师">
+	<link rel="stylesheet" href="css/common.css">
+	<link rel="stylesheet" href="css/index.css">
+	<link rel="stylesheet" href="css/menu.css">
+	<link rel="shortcut icon" href="favicon.ico"  type="image/x-icon"/>
+</head>
+<body>
+<script src="js/jquery.min.js"></script>
+
+<header class="navigation" id="navigation">
+   
+        <a href="#" class="navbar" onclick="return false"> </a>
+        <nav> 
+            <a href="#">秦贞一</a>
+            <ul id="menuList">
+	            <li><a href="#home">主页</a></li>
+	            <li><a href="#infro">关于我</a></li>
+	            <li><a href="#skill">我的技能</a></li>
+	            <li><a href="#experience">我的经历</a></li>
+	             <li><a href="html/case.html">案例</a></li>
+            </ul> 
+        </nav> 
+</header>
+ 
+  <div class="main-button"></div>
+     <!-- 主页 -->
+    <section class="home" id="home">
+    	<div class="bg" ></div>
+    	<div class="content">
+    		<div class="home-photo"></div>
+    		<h1>秦贞一</h1>
+    		<p>千里之行，始于足下</p>
+    	</div>
+    </section> 
+    <!-- 个人信息 -->
+    <section class="infro clearfix" id="infro">
+    	<div class="content clearfix">
+    		<h1>关于我</h1>
+    		<p>About Me</p>
+    		<ul>
+    			<li>
+    				<span></span>
+    				<h3>学历</h3>
+    				<p>本科</p>
+    			</li>
+    			<li>
+    				<span></span>
+    				<h3>年龄</h3>
+    				<p>21岁</p>
+    			</li>
+    			<li>
+    				<span></span>
+    				<h3>籍贯</h3>
+    				<p>湖南省常德市</p>
+    			</li>
+    			<li>
+    				<span></span>
+    				<h3>目前</h3>
+    				<p>应届生</p>
+    			</li>
+    		</ul>
+    	</div>
+    </section> 
+    <!-- 技能 -->
+    <section class="skill clearfix" id="skill">
+    	<div class="bg" data-stellar-background-ratio="0.3"></div>
+    	<div class="content clearfix">
+    		<h1>我的技能</h1>
+    		<p>My Skills</p>
+    		<ul>
+    			<li>
+    				<span></span>
+    				<h3>HTML</h3>
+    				<p>熟悉div+css布局的html代码编写，能够根据交互原型和UI设计图完整制作出网页。</p>
+    			</li>
+    			<li>
+    				<span></span>
+    				<h3>CSS</h3>
+    				<p>熟悉css3动画</p>
+    			</li>
+    			<li>
+    				<span></span>
+    				<h3>JavaSript</h3>
+    				<p>熟悉JS，能利用js写出网页特效，掌握面向对象编程</p>
+    			</li>
+    			<li>
+    				<span></span>
+    				<h3>Jquery</h3>
+    				<p>能运用Jquery框架实现网页常用特效</p>
+    			</li>
+    		</ul>
+    	</div>
+    </section> 
+    <!-- 经历 -->
+    <section class="experience clearfix" id="experience">
+    	<div class="content clearfix" id="content">
+    		<h1>我的经历</h1>
+    		<p>My experience</p>
+    		<div class="inner" id="inner">
+	    		<ul>
+	    			<li>
+	    				<h2>喵喵喵记账小程序</h2>
+	    				<h3>微信记账小程序，实现日常记账功能，还能根据关联的邮箱，每天提醒记账</h3>
+	    				<p>使用wxml,wxss完成网页布局。</br>使用js完成页面交互和特效</p>
+	    			</li>
+	    			<li>
+	    				<h2>漫画阅读网站</h2>
+	    				<h3>实现了用户注册与登录，搜索漫画，查看漫画，收藏漫画等功能。</h3>
+	    				<p>负责开发小组的工作调度与人员任务分配。网站的功能策划。</br>完成布局和特效</p>
+	    			</li>
+	    			<li>
+	    				<h2>获奖经历</h2>
+	    				<h3>2015-2018年间</h3>
+	    				<p>多次获得院级一等奖学金，二等奖学金</br>获得“麦克奥迪”奖学金</p>
+	    			</li>
+	    			<li>
+	    				<h2>学生工作经历</h2>
+	    				<h3>2015-2018年间</h3>
+	    				<p>担任院青年志愿者协会宣传部部长</br>担任班级“学习委员”</p>
+	    			</li>
+	    		</ul>
+    		</div>
+    		
+    		<div class="rectangle" id="rectangle">    			 
+    		</div>
+    	</div>
+    </section>
+	<div class="backTop">
+		
+	</div>
+    <footer>
+    	 
+    </footer>
+    <script src="js/jquery.min.js"></script>
+    <script src="js/jquery.stellar.js"></script>
+    <script src="js/common.js"></script>
+    <script src="js/index.js"></script>
+    <script src="js/menu.js"></script>
+    <script>
+	$(function(){
+		$(window).scroll(function () {
+			if($(window).scrollTop() >= 500 ){
+				$(".backTop").fadeIn(1000);
+			}else {
+				$(".backTop").fadeOut(1000);
+			}
+		});
+		$(".backTop").click(function () {
+			$("html,body").stop().animate({scrollTop:0},3000);
+		})
+	})
+
+</script>
+</body>
+</html>

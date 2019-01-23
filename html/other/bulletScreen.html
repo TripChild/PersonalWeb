@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <title>发射弹幕案例</title>
+    <link rel="shortcut icon" href="../../favicon.ico"  type="image/x-icon"/>
+    <link rel="stylesheet" href="../../css/common.css">
+    <style>
+        .box {
+            width: 630px;
+            height: 360px;
+            position: relative;
+            margin: 100px auto;
+            overflow: hidden;
+            border-radius: 2px;
+            box-shadow: 0 0 5px 5px rgba(0,0,0,0.2) ;
+        }
+        .content {
+            width: 100%;
+            height: 40px;
+            position: absolute;
+            bottom: 0px;
+            background-color: #fff;
+        }
+        .content>input {
+            width: 300px;
+            height: 30px;
+            position: absolute;
+            padding-left: 5px;
+            bottom: 5px;
+            right: 90px;
+            background-color: #DDDDDD;
+            border: 1px solid #9E9E9B;
+            outline: none;
+            border-radius: 2px;
+        }
+        .btn {
+            width: 70px;
+            height: 30px;
+            position: absolute;
+            border: none;
+            right: 20px;
+            bottom: 5px;
+            background-color: #4CAF50;
+            color: #fff;
+            border-radius: 2px;
+        }
+        span {
+            width: 300px;
+            height: 40px;
+            position: absolute;
+            overflow: hidden;
+            font-size: 16px;
+            line-height: 40px;
+            cursor: pointer;
+            white-space: nowrap;/*强制在以同行显示*/
+        }
+
+    </style>
+</head>
+<body>
+  <div class="box">
+      <div class="content">
+          <input type="text" id="text" placeholder="发个弹幕见证一下当下">
+          <button class="btn">发送</button>
+      </div>
+  </div>
+  <script src="../../js/jquery.min.js"></script>
+  <script>
+      $(function () {
+          var colors = ["bule", "green", "hotpink", "pink", "red", "yellow", "purple", "deepskyblue"];
+          $(".btn").on("click",send);
+          function send() {
+                  var randomColor = parseInt(Math.random()*colors.length);
+                  var boxHeight = $(".box")[0].offsetHeight-40;
+                  var contentHeight = $(".content")[0].offsetHeight;
+                  var randomY = parseInt(Math.random() * (boxHeight-contentHeight)+contentHeight);
+                  $("<span></span>").text($("#text").val())
+                          .css("color",colors[randomColor])
+                          .css("bottom",randomY)
+                          .css("left", "700px")
+                          .animate({left:-500},6000,"linear",function(){
+                              $(this).remove();
+                          })
+                          .appendTo(".box");
+                  $("#text").val("");
+          }
+          $("#text").keyup(function(e) {
+              if (e.keyCode == 13) {
+                  $(".btn").click();
+              }
+          });
+      });
+  </script>
+</body>
+</html>

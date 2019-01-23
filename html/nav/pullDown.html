@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title>下拉菜单</title>
+    <link rel="shortcut icon" href="../../favicon.ico"  type="image/x-icon"/>
+    <style type="text/css">
+        * {
+            margin: 0;
+            padding: 0;
+        }
+
+        ul {
+            list-style: none;
+        }
+
+        .wrap {
+            width: 330px;
+            height: 40px;
+            margin: 100px auto 0;
+            background: #3e5165;
+        }
+
+        .wrap li {
+            background: #3e5165;
+        }
+
+        .wrap > ul > li {
+            float: left;
+            position: relative;
+        }
+
+        .wrap a {
+            display: block;
+            height: 40px;
+            width: 110px;
+            text-decoration: none;
+            color: #fff;
+            line-height: 40px;
+            text-align: center;
+        }
+
+        .wrap li ul {
+            position: absolute;
+            top: 40px;
+            display: none;
+        }
+        .ul li {
+            background-color: #23313f;
+            transition: all 1s;
+        }
+        .ul li:hover {
+            background-color: #3e5165;
+        }
+    </style>
+    <script src="../../js/jquery.min.js"></script>
+    <script>
+        $(function(){
+            $(".wrap>ul>li").mouseenter(function(){
+                $(this).children("ul").stop().slideDown();
+            });
+            $(".wrap>ul>li").mouseleave(function(){
+                $(this).children("ul").stop().slideUp();
+            });
+        })
+    </script>
+</head>
+<body>
+<div class="wrap">
+    <ul>
+        <li>
+            <a href="javascript:void(0);">一级菜单1</a>
+            <ul class="ul">
+                <li><a href="javascript:void(0);">二级菜单11</a></li>
+                <li><a href="javascript:void(0);">二级菜单12</a></li>
+                <li><a href="javascript:void(0);">二级菜单13</a></li>
+            </ul>
+        </li>
+        <li>
+            <a href="javascript:void(0);">一级菜单2</a>
+            <ul class="ul">
+                <li><a href="javascript:void(0);">二级菜单21</a></li>
+                <li><a href="javascript:void(0);">二级菜单22</a></li>
+                <li><a href="javascript:void(0);">二级菜单23</a></li>
+            </ul>
+        </li>
+        <li>
+            <a href="javascript:void(0);">一级菜单3</a>
+            <ul  class="ul">
+                <li><a href="javascript:void(0);">二级菜单31</a></li>
+                <li><a href="javascript:void(0);">二级菜单32</a></li>
+                <li><a href="javascript:void(0);">二级菜单33</a></li>
+            </ul>
+        </li>
+    </ul>
+</div>
+
+</body>
+</html>

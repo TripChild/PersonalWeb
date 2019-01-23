@@ -1,0 +1,171 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <title>轮播图</title>
+    <link rel="shortcut icon" href="../../favicon.ico"  type="image/x-icon"/>
+    <link rel="stylesheet" href="../../css/common.css">
+    <style>
+         ol {
+            list-style: none;
+         }
+         .box {
+            width: 500px;
+            height: 200px;
+            margin: 100px auto;
+            position: relative;
+         }
+         .screen {
+             width: 500px;
+             height: 200px;
+             overflow: hidden;
+             position: relative;
+         }
+         .screen ul {
+             position: absolute;
+             left: 0;
+             top: 0;
+             width: 3000px;
+         }
+         .screen ul li {
+             width: 500px;
+             height: 200px;
+             float: left;
+             overflow: hidden;
+         }
+        .screen ol {
+            position: absolute;
+            right: 15px;
+            bottom: 15px;
+        }
+        .screen>ol li {
+            width: 15px;
+            height: 15px;
+            float: left;
+            margin-left: 10px;
+            border: 3px solid rgba(255,255,255,0.8);
+            border-radius: 100%;
+        }
+         .screen>ol li.current {
+             background-color: #fafafa;
+             border: none;
+             box-shadow: 0 0 0 5px rgba(255,255,255,0.6);
+         }
+        .arr {
+            display: none;
+        }
+        .arr span {
+            width: 40px;
+            height: 40px;
+            position: absolute;
+            left: 0;
+            top: 50%;
+            margin-top: -20px;
+            background: #000;
+            cursor: pointer;
+            line-height: 40px;
+            text-align: center;
+            font-weight: bold;
+            font-family: "黑体";
+            font-size: 30px;
+            color: #fff;
+            opacity: 0.3;
+            transition: all 1s;
+        }
+         .arr span:hover {
+             opacity: 0.8;
+         }
+        .arr span:last-child {
+            right: 0;
+            left: auto;
+        }
+    </style>
+</head>
+<body>
+    <div class="box" id="box">
+        <div class="screen">
+            <ul>
+                <li><img src="images/1.png" width="500px" height="200px"></li>
+                <li><img src="images/2.png" width="500px" height="200px"></li>
+                <li><img src="images/3.png" width="500px" height="200px"></li>
+                <li><img src="images/4.png" width="500px" height="200px"></li>
+                <li><img src="images/5.png" width="500px" height="200px"></li>
+            </ul>
+            <ol>
+            </ol>
+        </div>
+        <div class="arr">
+            <span>&lt;</span>
+            <span>&gt;</span>
+        </div>
+    </div>
+    <script src="../../js/common.js"></script>
+    <script>
+        var box = getEById("box");
+        var screen = box.children[0];
+        var imgWidth = screen.offsetWidth;
+        var ulObj = screen.children[0];
+        var list = ulObj.children;
+        var olObj = screen.children[1];
+        var arr = box.children[1];
+        var left = arr.children[0];
+        var right = arr.children[1];
+        var pic = 0;
+        for (var i = 0; i < list.length; i++) {
+            var liObj = document.createElement("li");
+            olObj.appendChild(liObj);
+            liObj.setAttribute("index", i);
+            liObj.onmouseover = function () {
+                for (var j = 0; j < olObj.children.length; j++) {
+                    olObj.children[j].removeAttribute("class");
+                }
+                this.className = "current";
+                pic = this.getAttribute("index");
+                animate(ulObj, -pic * imgWidth);
+            };
+        }
+        olObj.children[0].className = "current";
+        ulObj.appendChild(ulObj.children[0].cloneNode(true));
+        var timeId= setInterval(clickHandle,3000);
+        box.onmouseover = function () {
+            arr.style.display = "block";
+            clearInterval(timeId);
+        };
+        box.onmouseout = function () {
+            arr.style.display = "none";
+            timeId= setInterval(clickHandle,3000);
+        };
+        right.onclick =clickHandle;
+        function clickHandle() {
+            if (pic == list.length - 1) {
+                pic = 0;
+                ulObj.style.left = 0 + "px";
+            }
+            pic++;
+            animate(ulObj, -pic * imgWidth);
+            if (pic == list.length - 1) {
+                olObj.children[olObj.children.length - 1].className = "";
+                olObj.children[0].className = "current";
+            } else {
+                for (var i = 0; i < olObj.children.length; i++) {
+                    olObj.children[i].removeAttribute("class");
+                }
+                olObj.children[pic].className = "current";
+            }
+        };
+        left.onclick = function () {
+            if (pic == 0) {
+                pic = list.length - 1;
+                ulObj.style.left = -pic * imgWidth + "px";
+            }
+            pic--;
+            animate(ulObj, -pic * imgWidth);
+            for (var i = 0; i < olObj.children.length; i++) {
+                olObj.children[i].removeAttribute("class");
+            }
+            olObj.children[pic].className = "current";
+        };
+
+    </script>
+</body>
+</html>

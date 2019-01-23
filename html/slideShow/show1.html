@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <link rel="shortcut icon" href="../../favicon.ico"  type="image/x-icon"/>
+    <title>轮播图</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            list-style: none;
+        }
+
+        .box {
+            height: 334px;
+            width: 776px;
+            margin: 100px auto;
+            position: relative;
+        }
+
+        .box li {
+            position: absolute;
+            display: none;
+        }
+
+        .box li:first-child {
+            display: block;
+        }
+
+
+        .arrow {
+            display: none;
+        }
+
+        .box:hover .arrow {
+            display: block;
+        }
+
+        .arrow-left,
+        .arrow-right {
+            font-family: "SimSun", "宋体";
+            width: 30px;
+            height: 60px;
+            background-color: rgba(0, 0, 0, 0.1);
+            position: absolute;
+            top: 50%;
+            margin-top: -30px;
+            cursor: pointer;
+            text-align: center;
+            line-height: 60px;
+            color: #fff;
+            font-weight: 700;
+            font-size: 30px;
+        }
+
+        .arrow-left:hover,
+        .arrow-right:hover {
+            background-color: rgba(0, 0, 0, .5);
+        }
+
+        .arrow-left {
+            left: 0;
+        }
+
+        .arrow-right {
+            right: 0;
+        }
+
+    </style>
+</head>
+<body>
+<div class="box">
+    <ul>
+        <li><img src="images/1.png" ></li>
+        <li><img src="images/2.png" ></li>
+        <li><img src="images/3.png" ></li>
+        <li><img src="images/4.png" ></li>
+        <li><img src="images/5.png" ></li>
+    </ul>
+    <!--箭头-->
+    <div class="arrow">
+        <span class="arrow-left">&lt;</span>
+        <span class="arrow-right">&gt;</span>
+    </div>
+</div>
+
+
+<script src="../../js/jquery.min.js"></script>
+<script>
+    $(function(){
+        var count=0;
+        $(".arrow-right").click(function(){
+            count++;
+            if(count==$(".box ul li").length){
+                count=0;
+            }
+            $(".box ul li").eq(count).fadeIn().siblings("li").fadeOut();
+        });
+        $(".arrow-left").click(function(){
+            count--;
+            if(count==-1){
+                count=$(".box ul li").length-1;
+            }
+            $(".box ul li").eq(count).fadeIn().siblings("li").fadeOut();
+        });
+    })
+</script>
+
+</body>
+</html>
